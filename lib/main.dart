@@ -72,13 +72,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   SafeArea buildBody() {
     return SafeArea(
-      child: Column(children: <Widget>[
-        buildTitleCard(),
-        buildDateCard(),
-        buildMedicinesCard(),
-        buildExaminationsCard(),
-      ]),
-    );
+        child: Container(
+      height: double.infinity,
+      child: SingleChildScrollView(
+        physics: AlwaysScrollableScrollPhysics(),
+        child: Column(children: <Widget>[
+          buildTitleCard(),
+          buildDateCard(),
+          buildMedicinesCard(),
+          buildExaminationsCard(),
+        ]),
+      ),
+    ));
   }
 
   Card buildDateCard() {
@@ -185,39 +190,35 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Color(0XFF3366CD),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Row(
-                // mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Text(
-                    'All time',
-                    style: TextStyle(
-                        fontSize: 16,
-                        // fontWeight: FontWeight.bold,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  Container(
-                    color: Color(0xFF3366CD),
-                    height: 40.0, // height of the button
-                    width: 40.0, // width of the button
-                    child: Center(
-                        child: Icon(
-                      Icons.keyboard_arrow_down,
-                      size: 32,
-                      color: Colors.white,
-                    )),
-                  ),
-                ],
+              child: ClipRRect(
+                clipBehavior: Clip.antiAlias,
+                borderRadius: BorderRadius.circular(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Text(
+                      'All time',
+                      style: TextStyle(
+                          fontSize: 17,
+                          // fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    Container(
+                      color: Color(0xFF3366CD),
+                      height: 40.0, // height of the button
+                      width: 40.0, // width of the button
+                      child: Center(
+                          child: Icon(
+                        Icons.keyboard_arrow_down,
+                        size: 32,
+                        color: Colors.white,
+                      )),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-          buildMedicineRow(
-              iconData: Icons.bookmark_border,
-              title: 'Alendronate',
-              subTitle: '100 mg'),
-          buildMedicineRow(
-              iconData: Icons.bookmark,
-              title: 'Ibandronate',
-              subTitle: '50 mg'),
         ],
       ),
     );
