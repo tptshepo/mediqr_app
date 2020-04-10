@@ -51,22 +51,45 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF2767D8),
-              Color(0xFF2665D6),
-              Color(0xFF1A42B2),
-            ],
+      body: Stack(children: <Widget>[
+        Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFF2767D8),
+                Color(0xFF2665D6),
+                Color(0xFF1A42B2),
+              ],
+            ),
           ),
+          child: buildBody(),
         ),
-        child: buildBody(),
-      ),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          left: 0,
+          child: Container(
+            // width: 100,
+            height: 100,
+            // margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xFFE5E7E9),
+                  Color(0xFFEFF0F1),
+                  Color(0xFFFFFFFF),
+                ],
+              ),
+            ),
+          ),
+        )
+      ]),
     );
   }
 
