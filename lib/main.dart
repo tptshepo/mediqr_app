@@ -32,6 +32,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ));
   }
 
-  Widget buildExaminationCard() {
+  Widget buildExaminationRow() {
     return Container(
       width: 380,
       height: 300,
@@ -378,7 +382,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          buildExaminationCard(),
+          buildExaminationRow(),
         ],
       ),
     );
@@ -418,11 +422,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 40.0, // height of the button
                       width: 40.0, // width of the button
                       child: Center(
-                          child: Icon(
-                        Icons.format_list_bulleted,
-                        size: 18,
-                        color: Color(0XFF2A70DD),
-                      )),
+                        child: IconButton(
+                          icon: Icon(
+                            Icons.format_list_bulleted,
+                            color: Color(0XFF2A70DD),
+                            size: 18,
+                          ),
+                          onPressed: () {},
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -434,10 +442,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 40.0, // height of the button
                       width: 40.0, // width of the button
                       child: Center(
-                          child: Icon(
-                        Icons.calendar_today,
-                        size: 18,
-                        color: Color(0xFF6F98DF),
+                          child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.calendar_today,
+                          size: 18,
+                          color: Color(0xFF6F98DF),
+                        ),
                       )),
                     ),
                   ),
