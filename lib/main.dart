@@ -68,28 +68,32 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           child: buildBody(),
         ),
-        Positioned(
-          bottom: 0,
-          right: 0,
-          left: 0,
-          child: Container(
-            // width: 100,
-            height: 100,
-            // margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xFFE5E7E9),
-                  Color(0xFFEFF0F1),
-                  Color(0xFFFFFFFF),
-                ],
-              ),
-            ),
-          ),
-        )
+        // buildBottomBorder()
       ]),
+    );
+  }
+
+  Positioned buildBottomBorder() {
+    return Positioned(
+      bottom: 0,
+      right: 0,
+      left: 0,
+      child: Container(
+        // width: 100,
+        height: 100,
+        // margin: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFFE5E7E9),
+              Color(0xFFEFF0F1),
+              Color(0xFFFFFFFF),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -109,12 +113,144 @@ class _MyHomePageState extends State<MyHomePage> {
     ));
   }
 
+  Widget buildExaminationCard() {
+    return Container(
+      width: 380,
+      height: 300,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      // elevation: 0,
+      alignment: Alignment.topLeft,
+      padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(left: 15),
+            child: Text(
+              '11 Dec, 2017',
+              style: TextStyle(
+                color: Color(0xFF6d92af),
+                fontSize: 14,
+                // fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 15, top: 10),
+            child: Text(
+              'Left Arm X-Ray',
+              style: TextStyle(
+                color: Color(0xFF415667),
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 15, top: 15),
+            child: Text(
+              'SUMMARY',
+              style: TextStyle(
+                color: Color(0xFF0065db),
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 15, top: 10),
+            child: Text(
+              'Both Ulna and Radius bones fractured. Significant displacement diagnosed.',
+              style: TextStyle(
+                color: Color(0xFF22455b),
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 15, top: 20),
+            child: Text(
+              'REPORTER',
+              style: TextStyle(
+                color: Color(0xFF0065db),
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 15, top: 10),
+            child: Row(
+              children: <Widget>[
+                ClipOval(
+                  child: Container(
+                    color: Color(0xFF4889E0),
+                    height: 32.0, // height of the button
+                    width: 32.0, // width of the button
+                    child: Center(
+                        child: Icon(
+                      Icons.person,
+                      size: 18,
+                      color: Colors.white,
+                    )),
+                  ),
+                ),
+                SizedBox(width: 10.0),
+                Text(
+                  'Dr Roman Kutepov',
+                  style: TextStyle(
+                    color: Color(0xFF22455b),
+                    // fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 15),
+            child: Container(
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: Color(0xFFe8f2ff),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'See X-Ray',
+                    style: TextStyle(
+                        color: Color(0xFF1b6edc),
+                        fontSize: 16,
+                        // fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  Icon(
+                    Icons.arrow_forward,
+                    // size: 18,
+                    color: Color(0xFF1b6edc),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   Card buildDateCard() {
     return Card(
       color: Colors.transparent,
       elevation: 0,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        // mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
             leading: ClipOval(
@@ -156,7 +292,7 @@ class _MyHomePageState extends State<MyHomePage> {
       color: Colors.transparent,
       elevation: 0,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        // mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
             title: Text(
@@ -187,7 +323,7 @@ class _MyHomePageState extends State<MyHomePage> {
       color: Colors.transparent,
       elevation: 0,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        // mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
             title: Text(
@@ -242,6 +378,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
+          buildExaminationCard(),
         ],
       ),
     );
@@ -252,7 +389,7 @@ class _MyHomePageState extends State<MyHomePage> {
       color: Colors.transparent,
       elevation: 0,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        // mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
             title: Text(
@@ -324,7 +461,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Container buildMedicineRow(
       {IconData iconData, String title, String subTitle}) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.only(left: 10, right: 10),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
@@ -332,7 +469,6 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Color(0xFF3F78D6),
         elevation: 0,
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             ListTile(
               leading: Icon(
